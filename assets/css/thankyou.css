@@ -1,0 +1,287 @@
+body.woocommerce-order-received {
+    background-color: #F9F9F9;
+}
+
+.woocommerce-order-received main#content {
+    max-width: 800px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.woocommerce-order-received .woocommerce-order {
+    background-color: #fff;
+    border-radius: 20px;
+    border: 2px solid #E5E7EB;
+    overflow: hidden;
+}
+
+.mg-divisor {
+    border-bottom: 2px dashed #D1D5DC;
+}
+
+.mgpe-header {
+    background-color: #671D75;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.mgpe-header p {
+    margin: 0;
+}
+
+.mgpe-header__title {
+    font-family: Playfair Display;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.mgpe-header-details {
+    background-color: #854B91;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.mgpe-header-details__pedido {
+    font-weight: bold;
+}
+
+.mgpe-title {
+    font-weight: bold;
+    color: #671D75;
+    border-bottom: 1px solid #D1D5DC;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.mgpe-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mgpe-unidad {
+    text-align: center;
+    font-weight: bold;
+}
+
+.mgpe-unidad__label {
+    color: #6A7282;
+    font-size: 14px;
+}
+
+.mgpe-unidad__value {
+    color: #671D75;
+    font-size: 18px;
+}
+
+.mgpe-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mgpe-item__label {
+    color: #4A5565;
+}
+
+.mgpe-item__value {}
+
+.mgpe-products__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mgpe-product {
+    display: flex;
+    gap: 10px;
+}
+
+.mgpe-product__content {
+    flex: 1;
+}
+
+.mgpe-product__image img {
+    width: 80px;
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+}
+
+.mgpe-product__name {
+    font-size: 18px;
+}
+
+.mgpe-product__quantity {
+    color: #6A7282;
+}
+
+.mgpe-product__total {
+    font-weight: bold;
+    color: #671D75;
+}
+
+.mgpe-item--total {
+    border-top: 2px solid #D1D5DC;
+    padding-top: 10px;
+}
+
+.mgpe-item--total .mgpe-item__label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #111111;
+}
+
+.mgpe-item--total .mgpe-item__value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #671D75;
+}
+
+.mgpe-item--date .mgpe-item__label {
+    font-weight: bold;
+}
+
+.mgpe-item--coupon {
+    color: #FF8C00;
+}
+
+
+.mgpe-item--coupon .mgpe-item__label {
+    color: #FF8C00;
+}
+
+.mgpe-item--coupon .mgpe-item__value {
+    font-weight: bold;
+}
+
+.mgpe-payment-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mgpe-payment-method-name,
+.mgpe-payment-method .card_type {
+    font-weight: bold;
+    color: #1E2939;
+}
+
+.mgpe-payment-method .card_details {
+    /* display: flex;
+    align-items: center;
+    gap: 10px; */
+    color: #616A78;
+}
+
+.mgpe-payment-method h4 {
+    font-size: 16px;
+}
+
+.payment-method-spin p {
+    font-size: 16px!important;
+}
+
+.payment-method-spin p:nth-child(n+6) {
+    display: none;
+}
+
+.mgpe-info {
+    display: flex;
+    gap: 30px;
+}
+
+.mgpe-info .mgpe-patient-info,
+.mgpe-info .mgpe-payer-info {
+    flex: 1;
+}
+
+.mgpe-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.mgpe-field__label {
+    color: #6A7282;
+    font-weight: bold;
+}
+
+.mgpe-field__value {
+    color: #1E2939;
+}
+
+.mgpe-footer {
+    text-align: center;
+}
+
+.mgpe-footer__thankyou-message {
+    color: #4A5565;
+    font-weight: bold;
+}
+
+.mgpe-footer__christus-muguerza {
+    color: #6A7282;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mgpe-footer-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.mgpe-footer-actions .mgpe-button {
+    flex: 1;
+    background-color: #671D75;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    font-family: "Montserrat", sans-serif !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    padding: 12px 20px !important;
+    color: #fff !important;
+    border-color: #671D75 !important;
+    text-decoration: none !important;
+}
+
+.mgpe-footer-actions .mgpe-button.download {
+    background-color: #fff !important;
+    color: #671D75 !important;
+    border-color: #671D75 !important;
+}
+
+.mgpe-footer-actions .mgpe-button.download:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f019';
+    margin-right: 15px;
+}
+
+/* Print Styles */
+@media print {
+    body > * {
+        display: none!important;
+    }
+
+    body.woocommerce-order-received main,
+    body.woocommerce-order-received main .page-content,
+    body.woocommerce-order-received main .page-content .woocommerce,
+    body.woocommerce-order-received .woocommerce-order,
+    body.woocommerce-order-received .woocommerce-order > * {
+        display: block!important;
+    }
+
+    body.woocommerce-order-received .woocommerce-order .mgpe-footer {
+        display: none!important;
+    }
+}

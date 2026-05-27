@@ -1,0 +1,1788 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap");
+
+:root {
+  --cly-brand: #671e75;
+  --cly-brand-dark: #4b1a56;
+  --cly-border: #e5e7eb;
+  --cly-muted: #6b7280;
+  --cly-accent: #ff8c00;
+}
+
+body.woocommerce-checkout {
+  background-color: #F9F9F9;
+}
+
+/* ========= HEADER ========= */
+.mg-checkout-header {
+  max-width: 1100px;
+  margin: 40px auto 20px;
+  padding: 0 20px;
+}
+
+.mg-back {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: var(--cly-brand);
+}
+
+.mg-title {
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 50.4px;
+  letter-spacing: 0px;
+  color: var(--cly-brand);
+}
+
+.mg-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #4a5565;
+}
+
+/* ========= STEPS ========= */
+/* CONTENEDOR DE LOS STEPS */
+.mg-steps {
+  display: grid;
+  grid-template-columns: auto 120px auto 120px auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 35px;
+  padding-bottom: 20px;
+}
+
+.mg-step {
+  position: relative;
+}
+
+.mg-line {
+  height: 4px;
+  background: #e5e5e5;
+  border-radius: 99px;
+  align-self: center;
+}
+
+.mg-line.is-done {
+  background: #00a63e;
+}
+
+/* línea gris completa */
+/* Eliminamos barras globales; usamos conectores por paso */
+
+/* Círculos por encima de la línea */
+.mg-step {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Ya no necesitamos el ::after en cada paso */
+/* .mg-step::after {
+  display: none;
+} */
+
+.mg-step {
+  text-align: center;
+  cursor: pointer;
+}
+
+.mg-step .number {
+  background: #e8e3f7;
+  color: var(--cly-brand);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  margin: 0 auto 8px;
+  font-size: 16px;
+}
+
+.mg-step.active .number {
+  background: var(--cly-brand);
+  color: #fff;
+}
+
+.mg-step .label {
+  color: #6B7280;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0px !important;
+  text-align: center !important;
+}
+
+.mg-step.active .label {
+  color: var(--cly-brand);
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: 0px !important;
+  text-align: center !important;
+}
+
+.mg-step.completed .number {
+  background: #00a63e;
+  color: #fff;
+}
+
+.mg-step.completed .number::before {
+  content: "\2713";
+  font-size: 16px;
+}
+
+.mg-step.completed .number {
+  font-size: 0;
+}
+
+.mg-step.completed .number {
+  background: #00a63e;
+  color: #fff;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details {
+  display: block;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details .woocommerce-billing-fields {
+  display: block;
+}
+
+form.checkout.woocommerce-checkout #customer_details .mg_billing_heading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #671D75;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details .col-1 {
+  width: 100%;
+  float: none;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details .col-2 {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details .woocommerce-billing-fields__field-wrapper>p.mg_billing {
+  display: block;
+}
+
+form.checkout.woocommerce-checkout.step-1 #billing_requires_field {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details .woocommerce-billing-fields>p {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details .woocommerce-billing-fields__field-wrapper>p.mg_billing {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details .mg-billing-choice {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-1 #customer_details .woocommerce-additional-fields {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-1 .mg-payment-wrapper {
+  display: none;
+}
+
+/* Force hide fields in step 1 */
+form.checkout.woocommerce-checkout.step-1 #customer_details #billing_address_1_field,
+form.checkout.woocommerce-checkout.step-1 #customer_details #billing_address_2_field,
+form.checkout.woocommerce-checkout.step-1 #customer_details #billing_city_field,
+form.checkout.woocommerce-checkout.step-1 #customer_details #billing_postcode_field {
+  display: none!important;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details {
+  display: block;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details .woocommerce-billing-fields {
+  display: block;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details .woocommerce-additional-fields {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details .woocommerce-billing-fields__field-wrapper>p:not(.mg_billing) {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details .woocommerce-billing-fields>h3 {
+  display: block;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 6px !important;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details .woocommerce-billing-fields>p:not(.mg-billing-legend) {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-2 .mg-payment-wrapper {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details .mg-billing-choice {
+  display: grid;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details .col-1 {
+  width: 100%;
+  float: none;
+}
+
+form.checkout.woocommerce-checkout.step-2 #customer_details .col-2 {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-3 #customer_details {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-3 .mg-payment-wrapper {
+  display: block;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payer_info_same_as_patient_field {
+  background: #FAF5FF;
+  border: 1px solid #E9D4FF;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payer_info_same_as_patient_field label {
+  display: block;
+  margin: 0!important;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payer_info_same_as_patient_field input {
+  accent-color: #671D75;
+}
+
+form.checkout.woocommerce-checkout.step-3 .mg-payer-info-container-title {
+  color: #671D75;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+form.checkout.woocommerce-checkout.step-1 .mg-extra-payments,
+form.checkout.woocommerce-checkout.step-2 .mg-extra-payments,
+form.checkout.woocommerce-checkout.step-1 .woocommerce-form-coupon-toggle,
+form.checkout.woocommerce-checkout.step-2 .woocommerce-form-coupon-toggle,
+form.checkout.woocommerce-checkout.step-1 .checkout_coupon,
+form.checkout.woocommerce-checkout.step-2 .checkout_coupon {
+  display: none !important;
+}
+
+form.checkout.woocommerce-checkout.step-3 .woocommerce-form-coupon-toggle {
+  display: block !important;
+}
+
+.mg-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  width: 100%;
+  clear: both;
+}
+
+.mg-controls.is-step-1 {
+  justify-content: flex-end;
+}
+
+.mg-controls.is-step-2 {
+  justify-content: space-between;
+}
+
+.mg-controls.is-step-3 {
+  justify-content: space-between;
+}
+
+.mg-controls .button {
+  border-radius: 10px !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  padding: 12px 20px !important;
+}
+
+.mg-controls .button.mg-prev {
+  background: #fff;
+  color: var(--cly-brand);
+  border: 2px solid var(--cly-brand);
+}
+
+.mg-controls .button.mg-next {
+  background: var(--cly-brand) !important;
+  color: #fff !important;
+  border-color: var(--cly-brand) !important;
+  angle: 0 deg !important;
+  opacity: 1 !important;
+  border-radius: 8px !important;
+  padding-right: 16px !important;
+  padding-left: 16px !important;
+  gap: 8px !important;
+}
+
+.woocommerce-checkout input.input-text,
+.woocommerce-checkout select,
+.woocommerce-checkout textarea {
+  background: #f7f8ff;
+  border: 1px solid #dfe2f5;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.woocommerce-checkout .form-row label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #1b1b1b;
+}
+
+.woocommerce-checkout ::placeholder {
+  color: #8a8fa3;
+}
+
+/* Radios de facturación (Paso 2) */
+.mg-billing-choice {
+  margin-top: 8px;
+  display: grid;
+  gap: 12px;
+}
+
+.mg-choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  background: #f7f8ff;
+  cursor: pointer;
+}
+
+.mg-choice strong {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.mg-choice small {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+.mg-choice.is-selected {
+  border-color: var(--cly-brand);
+  background: #f1e9ff;
+}
+
+.mg-choice .dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--cly-brand);
+  background: transparent;
+}
+
+.mg-choice.is-selected .dot {
+  background: var(--cly-brand);
+}
+
+/* Visibilidad de botones por paso */
+.mg-controls.is-step-1 .mg-prev {
+  display: none;
+}
+
+.mg-controls.is-step-1 .mg-next {
+  display: inline-block;
+}
+
+.mg-controls.is-step-2 .mg-prev {
+  display: inline-block;
+}
+
+.mg-controls.is-step-2 .mg-next {
+  display: inline-block;
+}
+
+.mg-controls.is-step-3 .mg-prev {
+  display: inline-block;
+}
+
+.mg-controls.is-step-3 .mg-next {
+  display: none;
+}
+
+.mg-step .label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* ========= LAYOUT PRINCIPAL ========= */
+/* El formulario de checkout se vuelve un grid con col izq (datos) y col der (resumen) */
+form.checkout.woocommerce-checkout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) 360px;
+  gap: 35px;
+  max-width: 1200px;
+  margin: 20px auto 80px;
+  padding: 0 20px;
+}
+
+/* Reordenamos usando grid-areas sin tocar HTML */
+form.checkout.woocommerce-checkout #customer_details {
+  grid-area: customer;
+}
+
+form.checkout.woocommerce-checkout #order_review {
+  grid-area: order;
+  align-self: flex-start;
+}
+
+/* Definición explícita de areas */
+form.checkout.woocommerce-checkout {
+  grid-template-areas:
+    "customer order"
+    "payment  order";
+}
+
+form.checkout.woocommerce-checkout #payment {
+  grid-area: payment;
+}
+
+/* Estilo de la tarjeta de métodos de pago (Step 3) */
+form.checkout.woocommerce-checkout.step-3 .mg-payment-wrapper {
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment {
+  background: #ffffff;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_methods {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method {
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  background: #f7f8ff;
+  padding: 14px 16px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method.is-selected {
+  border-color: var(--cly-brand);
+  background: #f1e9ff;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method>label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  gap: 16px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method input {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method .mg-payment-method-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  position: relative;
+  background: #F3F4F6; /* gris claro */
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method.is-selected .mg-payment-method-icon {
+  background: #671D75; /* purple */
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method .mg-payment-method-icon::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #6A7282;
+  font-size: 14px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method.is-selected .mg-payment-method-icon::before {
+  color: white;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .payment_method_conekta .mg-payment-method-icon::before {
+  content: "\f09d";
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .payment_method_conekta_bank_transfer .mg-payment-method-icon::before {
+  content: "\f0ec";
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .payment_method_spin .mg-payment-method-icon::before {
+  content: "\f15c";
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method.is-selected .mg-payment-method-check {
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  margin: 0 auto 8px;
+  background: #671D75;
+  color: white;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method.is-selected .mg-payment-method-check::before {
+  font-family: 'Font Awesome 5 Free';
+  content: "\2713";
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method .mg-payment-method-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method .mg-payment-method-title {
+  display: flex;
+  align-items: center;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method .mg-payment-method-title-text {
+  font-weight: bold!important;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method .mg-payment-method-description {
+  font-weight: normal!important;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .payment_box {
+  margin-top: 12px;
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .payment_box::before {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment #woocommerce-checkout-form-coupon {
+  display: flex;
+  flex-direction: column;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment #woocommerce-checkout-form-coupon p {
+  font-weight: bold;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment #woocommerce-checkout-form-coupon span {
+  font-size: 13px;
+  color: #4A5565;
+  cursor: pointer;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment #woocommerce-checkout-form-coupon button {
+  background: #F59E0C!important;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment #woocommerce-checkout-form-coupon button:disabled {
+  background: #FACF85!important;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment #woocommerce-checkout-form-coupon .form-row-first {
+  flex: 1;
+  display: flex;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment #woocommerce-checkout-form-coupon .form-row-last {
+  width: unset;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .mg-applied-coupon {
+  border: 2px solid #F59E0C;
+  background-color: #FFF7EC;
+  padding-top: 14px;
+  padding-right: 26px;
+  padding-bottom: 14px;
+  padding-left: 26px;
+  font-weight: bold;
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .mg-applied-coupon p {
+  margin: 0;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .mg-applied-coupon .mg-applied-coupon-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .mg-applied-coupon .mg-applied-coupon-info-title {
+  color: #F59E0C;
+  font-size: 13px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .mg-applied-coupon .mg-applied-coupon-info-code {
+  font-weight: bold;
+  color: #1E2939;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .mg-applied-coupon .mg-applied-coupon-info-amount {
+  color: #4A5565;
+  font-size: 13px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .mg-applied-coupon button {
+  background-color: #F59E0C;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  font-family: "Montserrat", sans-serif !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  padding: 12px 20px !important;
+  color: #fff !important;
+  border-color: #F59E0C !important;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .place-order {
+  /* display: flex;
+  justify-content: space-between; */
+  align-items: center;
+  margin-top: 16px;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment div.form-row {
+  padding: 0 !important;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .place-order .woocommerce-terms-and-conditions-wrapper p {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 26px !important;
+  font-weight: normal !important;
+}
+
+/* Cupón dentro del paso 3 */
+form.checkout.woocommerce-checkout.step-3 .woocommerce-form-coupon-toggle,
+form.checkout.woocommerce-checkout.step-3 .checkout_coupon {
+  width: 100% !important;
+  margin-top: 12px !important;
+  border: 2px dashed #e5e5e5;
+  border-radius: 10px;
+  /* padding: 14px; */
+  /*background: #fffbea;*/
+  opacity: 1 !important;
+  padding-top: 14px !important;
+  padding-right: 26px !important;
+  padding-bottom: 14px !important;
+  padding-left: 26px !important;
+}
+
+form.checkout.woocommerce-checkout.step-3 .woocommerce-info::before {
+  display: none !important;
+}
+
+form.checkout.woocommerce-checkout.step-3 .woocommerce-info::after {
+  content: "›" !important;
+  margin-left: auto !important;
+  font-size: 18px !important;
+  color: #e88e21 !important;
+}
+
+form.checkout.woocommerce-checkout.step-3 .woocommerce-info {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: none !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 26px !important;
+  color: #0A0A0A !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+form.checkout.woocommerce-checkout.step-3 .woocommerce-info a {
+  color: #e88e21 !important;
+}
+
+
+.woocommerce-coupon-form-wrapper .checkout_coupon {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout.step-3 #payment .checkout_coupon .button {
+  background: var(--cly-brand);
+  color: #fff;
+  border-color: var(--cly-brand);
+  border-radius: 10px;
+}
+
+/* El bloque de datos de contacto va como “card” blanca */
+#customer_details {
+  background: #ffffff;
+  /* padding: 40px;
+  border-radius: 10px;*/
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  angle: 0 deg;
+  opacity: 1;
+  border-radius: 10px;
+  gap: 10px;
+  border-width: 1px;
+  padding: 33px;
+  border: 1px solid #E5E7EB;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+/* Ajustes de encabezado interno */
+.woocommerce-billing-fields>h3, .mg-payment-wrapper > h3 {
+  font-family: Playfair Display !important;
+  font-weight: 700 !important;
+  font-size: 28px !important;
+  line-height: 42px !important;
+  letter-spacing: 0px !important;
+  margin-bottom: 8px !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+  padding-bottom: 12px !important;
+}
+
+.woocommerce-billing-fields>p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Ocultar título original de “Tu pedido” y “Información adicional” para que no dupliquen */
+#order_review_heading,
+.woocommerce-additional-fields>h3 {
+  display: none !important;
+}
+
+/* RESUMEN DE COMPRA estilo tarjeta a la derecha */
+#order_review {
+  border: 2px solid #dfe2f5 !important;
+  padding: 20px !important;
+  border-radius: 10px;
+  background: #f7f8ff;
+}
+
+#order_review table.shop_table {
+  border: none;
+}
+
+#order_review table.shop_table th,
+#order_review table.shop_table td {
+  border-top: none;
+}
+
+#order_review table.shop_table thead {
+  display: none;
+}
+
+form.checkout.woocommerce-checkout .mg-messaje-checkout {
+  grid-column: 1 / -1;
+  width: 100%;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 26px !important;
+  font-weight: 500 !important;
+}
+
+/* Botón principal más parecido al diseño */
+#place_order.button.alt {
+  background-color: #4c3c84;
+  border-color: #4c3c84;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Alinear estilo del botón nativo con el de “Continuar” */
+#place_order.button.alt {
+  border-radius: 10px !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  padding: 12px 20px !important;
+  background: var(--cly-brand) !important;
+  color: #fff !important;
+  border-color: var(--cly-brand) !important;
+}
+
+/* Métodos adicionales (cashback y combinar) */
+form.checkout.woocommerce-checkout.step-3 #payment .mg-extra-payments {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+form.checkout.woocommerce-checkout.step-1 .mg-extra-payments,
+form.checkout.woocommerce-checkout.step-2 .mg-extra-payments {
+  display: none !important;
+}
+
+.mg-cashback-card,
+.mg-combine-block {
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  background: #f7f8ff;
+  padding: 14px 16px;
+}
+
+.mg-combine-block.is-selected {
+  border-color: var(--cly-brand);
+  background: #f1e9ff;
+}
+
+.mg-cashback-card.is-selected {
+  border-color: var(--cly-brand);
+  background: #f1e9ff;
+}
+
+.mg-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mg-card-header strong,
+.mg-combine-header strong {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.mg-card-header small,
+.mg-combine-header small {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+.mg-card-body p {
+  margin: 8px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #374151;
+}
+
+.mg-cashback-input {
+  margin-top: 10px !important;
+}
+
+.mg-cashback-input label {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  line-height: 15px !important;
+  letter-spacing: 0px !important;
+  color: #1F2937 !important;
+}
+
+.mg-cashback-row {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.mg-cashback-row .prefix {
+  font-weight: 700;
+  color: #374151;
+}
+
+input.mg-cashback-amount {
+  background: #f7f8ff;
+  border: 1px solid #dfe2f5;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.mg-use-all {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #671e75;
+  text-decoration: none !important;
+  /* border: 2px solid #671e75;
+  border-radius: 10px; */
+  padding: 8px 12px;
+  text-transform: uppercase;
+}
+
+.mg-cashback-input .hint {
+  display: block;
+  margin-top: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 990px) {
+  form.checkout.woocommerce-checkout {
+    display: block;
+    max-width: 100%;
+    /* margin: 20px auto 40px; */
+  }
+
+  #customer_details {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .mg-messaje-checkout {
+    margin-top: 20px;
+  }
+
+}
+
+@media (min-width: 1000px) {
+  form.checkout.woocommerce-checkout.step-3 {
+    row-gap: 0 !important;
+    column-gap: 35px !important;
+  }
+
+  form.checkout.woocommerce-checkout.step-3 .mg-messaje-checkout {
+    margin-top: 20px !important;
+  }
+}
+
+/* =========================== * FORMULARIO IZQUIERDO * =========================== */
+.woocommerce-checkout #customer_details {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid var(--cly-border);
+  padding: 24px 28px 28px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.06);
+}
+
+/* Título "Información personal" o similares */
+.woocommerce-checkout #customer_details h3 {
+  margin: 0 0 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #0a0a0a;
+}
+
+/* Que los campos internos se vean bien distribuidos */
+.woocommerce-checkout #customer_details .col2-set,
+.woocommerce-checkout #customer_details .col-1,
+.woocommerce-checkout #customer_details .col-2 {
+  width: 100%;
+}
+
+/* Etiquetas de los campos */
+.woocommerce form .form-row label {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  letter-spacing: 0px !important;
+  color: #364153 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Inputs del checkout */
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce form .form-row select {
+  border: 1px solid var(--cly-border) !important;
+  border-radius: 10px !important;
+  padding: 10px 12px !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 14px !important;
+  color: #0a0a0a !important;
+  background: #f9fafb !important;
+}
+
+/* Card derecha */
+.woocommerce-checkout #order_review {
+  position: relative !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  border: 1px solid var(--cly-border) !important;
+  padding: 24px 28px 28px !important;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Título "Resumen de compra" con pseudo-elemento */
+.woocommerce-checkout #order_review::before {
+  content: "Resumen de compra";
+  display: block;
+  margin-bottom: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #0A0A0A;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+/* Tabla interna sin bordes raros ni fondos grises */
+.woocommerce-checkout #order_review .shop_table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.woocommerce-checkout #order_review .shop_table tr,
+.woocommerce-checkout #order_review .shop_table th,
+.woocommerce-checkout #order_review .shop_table td {
+  background: transparent !important;
+  border: 0;
+  padding: 8px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+/* Nombre del producto y cantidad */
+.woocommerce-checkout #order_review .shop_table .product-name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.woocommerce-checkout #order_review .shop_table .product-quantity {
+  font-weight: 400;
+  color: #6b7280;
+}
+
+/* Alinear valores a la derecha */
+.woocommerce-checkout #order_review .shop_table td {
+  text-align: right;
+}
+
+.woocommerce-checkout #order_review .shop_table td.product-name {
+  text-align: left;
+}
+
+/* Divisor de Subtotal */
+.woocommerce-checkout #order_review .shop_table tfoot tr.cart-subtotal th,
+.woocommerce-checkout #order_review .shop_table tfoot tr.cart-subtotal td {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 12px;
+}
+
+/* Divisor antes del Total (igual que tu diseño) */
+.woocommerce-checkout #order_review .shop_table tfoot tr.order-total th,
+.woocommerce-checkout #order_review .shop_table tfoot tr.order-total td {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+/* Estilo de textos Subtotal / Total */
+.woocommerce-checkout #order_review .shop_table tfoot th {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+/* Monto total grande y negro */
+.woocommerce-checkout #order_review .order-total .amount {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--cly-brand);
+}
+
+/* Subtotal en gris */
+.woocommerce-checkout #order_review .cart-subtotal .amount {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.mg-billing-legend {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #666a7a;
+  margin: 6px 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Ocultar puntos/aplicar puntos en todos los steps */
+.cly-apply-points {
+  display: none !important;
+}
+
+form.checkout.woocommerce-checkout.step-3 .cly-apply-points {
+  display: block !important;
+}
+
+.woocommerce-checkout.step-3 #payment .mg-controls .mg-prev {
+  display: inline-block !important;
+}
+
+.woocommerce-checkout-review-order-table tr.cly-cashback-fee .woocommerce-Price-amount {
+  color: #00A63E !important;
+  font-weight: 600 !important;
+}
+
+.woocommerce-checkout-review-order-table tr.cly-cashback-fee th,
+.woocommerce-checkout-review-order-table tr.cly-cashback-fee td {
+  color: #00A63E !important;
+  font-weight: 500 !important;
+}
+
+.woocommerce-checkout-review-order-table .cly-cancel-cashback {
+  margin-left: 8px;
+  color: red !important;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.woocommerce-coupon-form-wrapper .mg-coupon-applied {
+  border: 2px solid #FFA000;
+  background: #FFF6E9;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.woocommerce-coupon-form-wrapper .mg-coupon-applied .mg-ca-left strong {
+  color: #FFA000;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.woocommerce-coupon-form-wrapper .mg-coupon-applied .mg-ca-remove {
+  color: #FFA000;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Métodos de pago: colapsado/expandido */
+.woocommerce-checkout-payment ul.wc_payment_methods>li.wc_payment_method {
+  border: 2px solid #e5e5e5 !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  padding: 28px 24px !important;
+  margin-bottom: 12px !important;
+}
+
+.woocommerce-checkout-payment ul.wc_payment_methods>li.wc_payment_method.is-selected {
+  border-color: var(--cly-brand) !important;
+  background: #f1e9ff !important;
+}
+
+.woocommerce-checkout-payment ul.wc_payment_methods>li .payment_box {
+  padding: 12px 4px 4px !important;
+}
+
+/* Combinar métodos: mostrar input solo expandido */
+#payment .mg-extra-payments .mg-cashback-input {
+  display: none !important;
+}
+
+#payment .mg-extra-payments .mg-combine-block.is-selected .mg-cashback-input {
+  display: block !important;
+}
+
+/* Imagen y texto del producto en resumen */
+.cly-checkout-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.cly-checkout-item .cly-thumb img.cly-checkout-thumb,
+.cly-checkout-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.cly-checkout-item .cly-text .cly-name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: #1F2937;
+}
+
+.cly-item-qty {
+  display: block;
+  margin-top: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* #order_review table.shop_table td.product-total .cly-item-price, */
+#order_review table.shop_table td.product-total ins .amount {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: var(--cly-brand) !important;
+}
+
+#order_review table.shop_table td.product-total ins {
+  text-decoration: none !important;
+}
+
+#order_review table.shop_table tr.cart_item td {
+  vertical-align: middle;
+}
+
+/* ====== ENHANCED RESPONSIVE (ADDED) ====== */
+@media (max-width: 768px) {
+
+  /* Header adjustments */
+  .mg-checkout-header {
+    margin: 20px auto 10px;
+    padding: 0 16px;
+  }
+
+  .mg-title {
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+  }
+
+  .mg-subtitle {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .mg-back {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* Steps Mobile Optimization */
+  .mg-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Align top so circles stay in line */
+    gap: 4px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .mg-step {
+    flex: 1 1 0px;
+    /* Force equal width for symmetry */
+    min-width: 0;
+  }
+
+  .mg-line {
+    flex: 0.2 1 0px;
+    /* Proportional small width */
+    min-width: 15px;
+    height: 4px;
+    margin-top: 16px;
+    /* Align with center of 36px circle */
+    align-self: flex-start;
+    /* Override global center alignment */
+    border-radius: 99px;
+  }
+
+  /* Ensure step labels don't break layout */
+  .mg-step .label {
+    font-size: 12px !important;
+    line-height: 14px !important;
+    display: block;
+    /* Ensure it stays below number */
+    word-wrap: break-word;
+    /* Ensure long words wrap */
+  }
+
+  /* Containers padding */
+  .woocommerce-checkout #customer_details,
+  .woocommerce-checkout #order_review,
+  form.checkout.woocommerce-checkout.step-3 #payment {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Form Fields */
+  .woocommerce-billing-fields__field-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-row {
+    width: 100% !important;
+    margin: 0 0 10px !important;
+    float: none !important;
+  }
+
+  /* Controls Stacking */
+  .mg-controls {
+    flex-direction: column-reverse;
+    /* Prev button below Next/Place Order */
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .mg-controls .button {
+    width: 100%;
+    justify-content: center;
+    padding: 14px !important;
+  }
+
+  /* Payment Methods */
+  form.checkout.woocommerce-checkout.step-3 #payment .wc_payment_method>label {
+    font-size: 14px;
+    color: black;
+  }
+
+  /* Coupon & Extra Payments */
+  form.checkout.woocommerce-checkout.step-3 .woocommerce-form-coupon-toggle,
+  form.checkout.woocommerce-checkout.step-3 .checkout_coupon {
+    padding: 16px !important;
+  }
+
+  .mg-cashback-row {
+    grid-template-columns: 1fr;
+    /* Stack label and input */
+    gap: 8px;
+  }
+
+  .mg-cashback-row .prefix {
+    display: none;
+    /* Hide currency symbol if it complicates layout, or adjust */
+  }
+
+  input.mg-cashback-amount {
+    width: 100%;
+  }
+
+  /* Review Order Table */
+  .cly-checkout-item {
+    grid-template-columns: 48px 1fr;
+  }
+
+  .cly-checkout-thumb {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ==========================================================================
+   CUSTOM THANK YOU PAGE 
+   ========================================================================== */
+
+.mg-thankyou-wrapper {
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: #f9f9f9; */
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* Header Section */
+.mg-ty-header {
+  background-color: #671e75;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px 100px 20px;
+  position: relative;
+}
+
+.mg-ty-icon-check {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  color: #28a745;
+  /* Green check */
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.mg-ty-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.mg-ty-header p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin: 0 0 20px;
+}
+
+.mg-ty-order-pill {
+  background: rgba(255, 255, 255, 0.15);
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.mg-ty-order-pill strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.mg-ty-order-pill span {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Main Card */
+.mg-ty-card {
+  background: #fff;
+  /* max-width: 700px; */
+  margin: -60px auto 0;
+  /* Overlap header */
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Unit Section */
+.mg-ty-unit-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mg-ty-unit-section small {
+  display: block;
+  text-transform: uppercase;
+  color: #888;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.mg-ty-unit-section h2 {
+  color: #671e75;
+  font-family: 'Montserrat', sans-serif;
+  /* Per design, looks sans-serif bold */
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.mg-ty-divider {
+  height: 1px;
+  background: #eee;
+  margin: 20px 0;
+}
+
+/* Date Row */
+.mg-ty-date-row {
+  display: flex;
+  justify-content: space-between;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* Section Titles */
+.mg-ty-section-title {
+  color: #671e75;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 30px 0 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Products List */
+.mg-ty-products-list {
+  margin-bottom: 30px;
+}
+
+.mg-ty-product-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.mg-ty-product-item:last-child {
+  border-bottom: none;
+}
+
+.mg-ty-prod-thumb img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.mg-ty-prod-info {
+  flex: 1;
+}
+
+.mg-ty-prod-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.mg-ty-prod-qty {
+  font-size: 12px;
+  color: #888;
+}
+
+.mg-ty-prod-price-mobile {
+  display: none;
+  font-weight: 700;
+  color: #671e75;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.mg-ty-prod-price {
+  font-weight: 700;
+  color: #671e75;
+  font-size: 16px;
+}
+
+/* Summary Rows */
+.mg-ty-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.mg-text-green {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.mg-text-orange {
+  color: #fd7e14;
+  font-weight: 600;
+}
+
+.mg-ty-total {
+  font-size: 24px;
+  font-weight: 700;
+  color: #671e75;
+  align-items: center;
+}
+
+/* Payment Method */
+.mg-ty-payment-method {
+  font-size: 15px;
+  color: #333;
+}
+
+/* Customer Info */
+.mg-ty-customer-info {
+  display: flex;
+  gap: 40px;
+}
+
+.mg-ty-col {
+  flex: 1;
+}
+
+.mg-ty-col small {
+  display: block;
+  text-transform: uppercase;
+  color: #999;
+  font-size: 10px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.mg-ty-col div {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+/* Additional Info */
+.mg-ty-additional-info {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Footer Text */
+.mg-ty-footer-text {
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+  margin: 40px 0;
+  line-height: 1.6;
+}
+
+/* Actions */
+.mg-ty-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.mg-btn-outline,
+.mg-btn-solid {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.mg-btn-outline {
+  background: transparent;
+  border: 1px solid #671e75;
+  color: #671e75;
+}
+
+.mg-btn-solid {
+  background: #671e75;
+  border: 1px solid #671e75;
+  color: #fff;
+}
+
+.mg-btn-outline:hover {
+  background: #fdf5ff;
+}
+
+.mg-btn-solid:hover {
+  background: #50155a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mg-ty-header {
+    padding: 30px 20px 80px;
+  }
+
+  .mg-ty-card {
+    margin: -50px 15px 0;
+    padding: 20px;
+  }
+
+  .mg-ty-date-row {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+
+  .mg-ty-prod-price {
+    display: none;
+    /* Hide desktop price */
+  }
+
+  .mg-ty-prod-price-mobile {
+    display: block;
+    /* Show mobile price below qty */
+  }
+
+  .mg-ty-customer-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mg-ty-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* FIX to display the last two form rows correctly */
+#billing_phone_field {
+    clear: both;
+}
+}

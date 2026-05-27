@@ -1,0 +1,494 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+:root {
+  --cly-brand: #671E75;
+  --cly-brand-dark: #4B1A56;
+  --cly-border: #e5e7eb;
+  --cly-muted: #6b7280;
+  --cly-accent: #ff8c00;
+}
+.woocommerce-cart {
+  font-family: "Montserrat", sans-serif;
+}
+.woocommerce-cart table.shop_table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;   
+  border-spacing: 0;
+  /* border-top: 1px solid var(--cly-border); */
+  /* border-bottom: 1px solid var(--cly-border); */
+  /* border-collapse: collapse; */
+  background: #fff;
+}
+
+/* 2. Dibuja SOLO la línea debajo del row de producto */
+/* .woocommerce-cart table.shop_table tbody tr.woocommerce-cart-form__cart-item td {
+  border-top: 1px solid #D1D5DC !important;
+  border-bottom: 1px solid var(--cly-border) !important;
+} */
+/* 3. Asegura que la fila de acciones no meta otra línea abajo */
+.woocommerce-cart table.shop_table tbody tr.actions td {
+  border-bottom: none !important;
+}
+.woocommerce-cart table.shop_table thead th {
+  background: transparent;
+  border: none;
+  color: #0a0a0a;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold !important;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.woocommerce-cart table.shop_table td,
+.woocommerce-cart table.shop_table th {
+  padding: 14px;
+  border: none;
+}
+.woocommerce-cart table.shop_table tbody tr.cart_item,
+.woocommerce-cart table.shop_table tbody tr.cart_item td {
+  background: none !important;
+}
+.woocommerce-cart table.shop_table thead th {
+  border-top: none !important;
+}
+/* .woocommerce-cart table.shop_table tbody tr {
+  border-bottom: 1px solid var(--cly-border);
+} */
+.woocommerce-cart table.shop_table td.product-thumbnail img {
+  border-radius: 10px;
+  min-width: 80px;
+}
+.woocommerce-cart table.shop_table td.product-remove a.remove {
+  color: #dc2626 !important;
+  font-size: 18px;
+}
+.woocommerce-cart table.shop_table td.product-name,
+.woocommerce-cart table.shop_table td.product-name a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #0a0a0a;
+}
+.woocommerce-cart
+  table.shop_table
+  td.product-price
+  .woocommerce-Price-amount.amount,
+.woocommerce-cart
+  table.shop_table
+  td.product-subtotal
+  .woocommerce-Price-amount.amount {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #0A0A0A;
+}
+
+/* Quitar cualquier borde que pongan el theme / Woo en celdas */
+.woocommerce-cart table.shop_table th,
+.woocommerce-cart table.shop_table td {
+  border: 0 !important;
+}
+
+/* Línea bajo el encabezado (entre títulos y fila de producto) */
+.woocommerce-cart table.shop_table thead tr {
+  border-bottom: 1px solid #d1d5dc;
+}
+
+/* Línea bajo la fila de productos (última fila con items) */
+.woocommerce-cart table.shop_table tbody tr.woocommerce-cart-form__cart-item {
+  border-bottom: 1px solid #d1d5dc;
+}
+
+/* La fila de acciones (cupón / actualizar) sin borde extra abajo */
+.woocommerce-cart table.shop_table tbody tr.actions {
+  border-bottom: 0 !important;
+}
+
+/* El TD se vuelve flex pero los bordes ya no dependen de border-collapse */
+.woocommerce-cart table.shop_table td.product-price,
+.woocommerce-cart table.shop_table td.product-subtotal {
+  display: flex;
+  flex-direction: column;    
+  justify-content: center;
+  align-items: center;
+}
+
+/* Precio actual (ins) arriba */
+.woocommerce-cart table.shop_table td.product-price ins,
+.woocommerce-cart table.shop_table td.product-subtotal ins {
+  order: 1;
+  display: block;
+  text-decoration: none;
+}
+
+/* Precio anterior (del) abajo */
+.woocommerce-cart table.shop_table td.product-price del,
+.woocommerce-cart table.shop_table td.product-subtotal del {
+  order: 2;
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #99a1af;
+  /* text-decoration: line-through; */
+}
+
+.woocommerce-cart
+  table.shop_table
+  td.product-price
+  del
+  .woocommerce-Price-amount.amount,
+.woocommerce-cart
+  table.shop_table
+  td.product-subtotal
+  del
+  .woocommerce-Price-amount.amount {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #99a1af;
+}
+.woocommerce-cart table.shop_table td.product-name a {
+  color: var(--cly-brand);
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+.woocommerce-cart table.shop_table td.product-price .amount,
+.woocommerce-cart table.shop_table td.product-subtotal .amount {
+  font-weight: 700;
+  color: var(--cly-accent);
+}
+.woocommerce-cart table.shop_table td.product-price del .amount,
+.woocommerce-cart table.shop_table td.product-subtotal del .amount {
+  font-weight: 400;
+  color: #99a1af;
+}
+.woocommerce-cart .cart .quantity .qty,
+.woocommerce-cart .cart input.qty {
+  border: 1px solid var(--cly-border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #0a0a0a;
+  width: 64px;
+  text-align: center;
+}
+.woocommerce-cart .cart .actions {
+  padding-inline: 0px;
+}
+.woocommerce-cart .cart .actions .coupon .input-text#coupon_code {
+  border: 1px solid var(--cly-border);
+  width: 192px;
+  height: 36px;
+  opacity: 1;
+  border-radius: 8px;
+  border-width: 1px;
+  padding-top: 4px;
+  padding-right: 12px;
+  padding-bottom: 4px;
+  padding-left: 12px;
+  background: #F3F3F5;
+  /* border-top: 1px solid #000000 */
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+.woocommerce-cart .cart .actions .button,
+.woocommerce-cart .cart .actions button.button {
+  background: var(--cly-brand) !important;
+  border-color: var(--cly-brand) !important;
+  color: #fff !important;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+}
+.woocommerce-cart .cart .actions .button[name="update_cart"] {
+  background: var(--cly-brand) !important;
+  border-color: var(--cly-brand) !important;
+  color: #fff !important;
+}
+.woocommerce-cart .cart .actions .coupon .button {
+  background: var(--cly-accent) !important;
+  border-color: var(--cly-accent) !important;
+  width: 155px;
+  height: 36px;
+  opacity: 1;
+  border-radius: 8px !important;
+  gap: 8px !important;
+  padding-top: 8px !important;
+  padding-right: 16px !important;
+  padding-bottom: 8px !important;
+  padding-left: 16px !important;
+  color: #fff !important;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+}
+.woocommerce-cart .cart_totals {
+  border: 1px solid var(--cly-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.woocommerce-cart .cart_totals h2 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #0a0a0a;
+}
+.woocommerce-cart .cart_totals .shop_table td,
+.woocommerce-cart .cart_totals .shop_table th {
+  padding: 10px 0;
+  border: none;
+}
+.woocommerce-cart .cart_totals .order-total .amount {
+  font-weight: 700;
+  font-size: 28px;
+  color: #0a0a0a;
+}
+.woocommerce-cart .cart_totals .shop_table .order-total th,
+.woocommerce-cart .cart_totals .shop_table .order-total td {
+  border-top: 2px solid var(--cly-border);
+}
+.woocommerce-cart a.checkout-button.button,
+.woocommerce-cart .checkout-button.button {
+  background: var(--cly-brand) !important;
+  border-color: var(--cly-brand) !important;
+  color: #fff !important;
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
+}
+.woocommerce-cart a.checkout-button.button:hover,
+.woocommerce-cart .checkout-button.button:hover {
+  background: var(--cly-brand-dark) !important;
+  border-color: var(--cly-brand-dark) !important;
+}
+.woocommerce-cart .button.button-secondary,
+.woocommerce-cart .button.secondary,
+.woocommerce-cart .button.outline {
+  background: transparent !important;
+  color: var(--cly-brand) !important;
+  border: 2px solid var(--cly-brand) !important;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
+  padding: 14px 22px;
+}
+.woocommerce-cart .wc-backward.button {
+  background: transparent !important;
+  color: var(--cly-brand) !important;
+  border: 2px solid var(--cly-brand) !important;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
+  padding: 14px 22px;
+}
+
+@media (max-width: 768px) {
+  .woocommerce-cart table.shop_table thead {
+    display: none;
+  }
+  .woocommerce-cart table.shop_table,
+  .woocommerce-cart table.shop_table tbody,
+  .woocommerce-cart table.shop_table tr,
+  .woocommerce-cart table.shop_table td {
+    display: block;
+    width: 100%;
+  }
+  /* .woocommerce-cart table.shop_table td {
+    border-top: 1px solid var(--cly-border);
+  } */
+  .woocommerce-cart .cart_totals .order-total .amount {
+    font-size: 24px;
+  }
+}
+
+/* ===== TOTAL DEL CARRITO – ESTILO COMO DISEÑO ===== */
+
+/* Contenedor a la derecha (igual que antes) */
+.woocommerce-cart .cart-collaterals {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Contenedor interno: sin card, sin fondo gris */
+.woocommerce-cart .cart_totals {
+  width: 420px;
+  max-width: 100%;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Título "Total del carrito" */
+.woocommerce-cart .cart_totals h2 {
+  margin: 0 0 24px;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #0a0a0a;
+}
+
+/* Tabla interna */
+.woocommerce-cart .cart_totals .shop_table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset TOTAL de fondos en filas y celdas (adiós gris) */
+.woocommerce-cart .cart_totals .shop_table tr,
+.woocommerce-cart .cart_totals .shop_table th,
+.woocommerce-cart .cart_totals .shop_table td {
+  background: transparent !important;
+}
+
+/* Celdas base */
+.woocommerce-cart .cart_totals .shop_table th,
+.woocommerce-cart .cart_totals .shop_table td {
+  border: 0;
+  padding: 12px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+/* Labels: "Subtotal" y "Total" */
+.woocommerce-cart .cart_totals .shop_table th {
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #4b5563;
+}
+
+/* Valores a la derecha */
+.woocommerce-cart .cart_totals .shop_table td {
+  text-align: right;
+}
+
+/* ---- Divisores ---- */
+
+/* Línea bajo Subtotal */
+.woocommerce-cart .cart_totals .shop_table tr.cart-subtotal th,
+.woocommerce-cart .cart_totals .shop_table tr.cart-subtotal td {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Línea bajo Total */
+.woocommerce-cart .cart_totals .shop_table tr.order-total th,
+.woocommerce-cart .cart_totals .shop_table tr.order-total td {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+}
+
+/* Monto del subtotal */
+.woocommerce-cart .cart_totals .shop_table tr.cart-subtotal .amount {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: right;
+  color: #0A0A0A;
+}
+
+/* Monto grande del Total */
+.woocommerce-cart .cart_totals .order-total .amount {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: right;
+  color: #0A0A0A;
+}
+
+/* ===== Botón principal "Finalizar compra" ===== */
+.woocommerce-cart a.checkout-button.button,
+.woocommerce-cart .checkout-button.button {
+  margin-top: 24px !important;
+  background: var(--cly-brand) !important;
+  border-color: var(--cly-brand) !important;
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 16px 22px !important;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px !important;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.woocommerce-cart a.checkout-button.button:hover,
+.woocommerce-cart .checkout-button.button:hover {
+  background: var(--cly-brand-dark) !important;
+  border-color: var(--cly-brand-dark) !important;
+}
+
+/* ===== Botón secundario "Continuar comprando" (estilo) ===== */
+.woocommerce-cart .wc-backward.button {
+  margin-top: 0px !important;
+  background: transparent !important;
+  color: var(--cly-brand) !important;
+  border: 2px solid var(--cly-brand) !important;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px !important;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
+  padding: 14px 22px !important;
+  text-align: center;
+}
+
+/* Forzar divisores en subtotal y total */
+.woocommerce-cart .cart_totals .shop_table tr.cart-subtotal th,
+.woocommerce-cart .cart_totals .shop_table tr.cart-subtotal td {
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.woocommerce-cart .cart_totals .shop_table tr.order-total th,
+.woocommerce-cart .cart_totals .shop_table tr.order-total td {
+  border-bottom: 1px solid #e5e7eb !important;
+  padding-bottom: 16px;
+}
