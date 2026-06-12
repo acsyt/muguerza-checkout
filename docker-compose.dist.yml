@@ -1,0 +1,11 @@
+services:
+  wpcli-dist:
+    image: wordpress:cli
+    working_dir: /workspace/muguerza-checkout
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      HOME: /tmp/wp-cli
+    volumes:
+      - .:/workspace/muguerza-checkout
+      - ./.wp-cli:/tmp/wp-cli
+    entrypoint: ["/bin/sh", "/workspace/muguerza-checkout/scripts/wpcli-dist.sh"]
