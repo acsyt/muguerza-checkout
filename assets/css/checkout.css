@@ -20,7 +20,7 @@ body.woocommerce-checkout {
   padding: 0 20px;
 }
 
-.mg-back {
+.woocommerce .mg-back {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-style: SemiBold;
@@ -29,6 +29,7 @@ body.woocommerce-checkout {
   letter-spacing: 0px;
   text-align: center;
   color: var(--cly-brand);
+  text-decoration: none;
 }
 
 .mg-title {
@@ -335,7 +336,7 @@ form.checkout.woocommerce-checkout.step-3 .woocommerce-form-coupon-toggle {
 }
 
 .mg-controls .button.mg-prev {
-  background: #fff;
+  background: #fff!important;
   color: var(--cly-brand);
   border: 2px solid var(--cly-brand);
 }
@@ -874,6 +875,36 @@ form.checkout.woocommerce-checkout .mg-messaje-checkout {
   border-color: var(--cly-brand) !important;
 }
 
+button.button.mg-prev {
+  border-radius: 10px !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  padding: 12px 20px !important;
+  background: var(--cly-brand) !important;
+  color: var(--cly-brand)!important;
+  border-color: var(--cly-brand) !important;
+}
+
+button.button.mg-prev:before {
+  font-family: 'Font Awesome 5 Free';
+  content: "\f060";
+  margin-right: 8px;
+}
+
+button.button.mg-next:after {
+  font-family: 'Font Awesome 5 Free';
+  content: "\f061";
+  margin-left: 8px;
+}
+
+.is-step-1 #place_order,
+.is-step-2 #place_order {
+  display: none;
+}
+
 /* Métodos adicionales (cashback y combinar) */
 form.checkout.woocommerce-checkout.step-3 #payment .mg-extra-payments {
   display: grid;
@@ -1130,7 +1161,6 @@ input.mg-cashback-amount {
 /* Divisor de Subtotal */
 .woocommerce-checkout #order_review .shop_table tfoot tr.cart-subtotal th,
 .woocommerce-checkout #order_review .shop_table tfoot tr.cart-subtotal td {
-  border-top: 1px solid #e5e7eb;
   padding-top: 12px;
 }
 
@@ -1139,6 +1169,7 @@ input.mg-cashback-amount {
 .woocommerce-checkout #order_review .shop_table tfoot tr.order-total td {
   border-top: 1px solid #e5e7eb;
   padding-top: 16px;
+  font-weight: bold!important;
 }
 
 /* Estilo de textos Subtotal / Total */
@@ -1785,4 +1816,73 @@ form.checkout.woocommerce-checkout.step-3 .cly-apply-points {
 #billing_phone_field {
     clear: both;
 }
+
+.woocommerce-checkout-review-order-table .cart-item-details {
+    padding: 0;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-areas:
+        "thumbnail name"
+        "thumbnail quantity"
+        "thumbnail total";
+    column-gap: 16px;
+    row-gap: 4px;
+    align-items: start;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-thumbnail {
+    grid-area: thumbnail;
+    align-self: start;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-thumbnail a {
+    display: block;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 72px;
+    object-fit: cover;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-name {
+    grid-area: name;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-quantity {
+    grid-area: quantity;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-total {
+    grid-area: total;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-name,
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-quantity,
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-total {
+    text-align: left;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-total {
+  font-weight: bold;
+}
+
+.woocommerce-checkout-review-order-table .cart-item-details__inner .product-total ins {
+  color: #671e75;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 576px) {
+    .woocommerce-checkout-review-order-table .cart-item-details__inner {
+        grid-template-columns: 64px minmax(0, 1fr);
+        column-gap: 12px;
+    }
+
+    .woocommerce-checkout-review-order-table .cart-item-details__inner .product-thumbnail img {
+        height: 64px;
+    }
 }

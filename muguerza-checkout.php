@@ -7,7 +7,7 @@
  * Author URI: http://acsyt.com
  * Developer: Acsyt
  * Text Domain: acsyt
- * Version: 0.0.0
+ * Version: 0.0.2
  * Requires at least: 6.0
  * Requires PHP: 8.0
  * Text Domain: muguerza-checkout
@@ -17,19 +17,60 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('MGC_VER', '0.0.0');
 define('MGC_PATH', plugin_dir_path(__FILE__));
 define('MGC_URL',  plugin_dir_url(__FILE__));
 
+if (!function_exists('alg_wc_ev_generate_user_code')) {
+    /**
+     * Compatibility shim for legacy email templates that still call the
+     * Email Verification for WooCommerce helper directly.
+     *
+     * The original plugin may be disabled or removed, but older theme
+     * overrides can still reference this function while rendering the
+     * "customer new account" email during checkout.
+     */
+    function alg_wc_ev_generate_user_code($user)
+    {
+        if ($user instanceof WP_User) {
+            $wp_user = $user;
+        } elseif (is_numeric($user)) {
+            $wp_user = get_user_by('id', (int) $user);
+        } elseif (is_string($user) && is_email($user)) {
+            $wp_user = get_user_by('email', $user);
+        } else {
+            $wp_user = false;
+        }
+
+        if (!($wp_user instanceof WP_User)) {
+            return wp_generate_password(20, false, false);
+        }
+
+        return wp_hash(
+            implode('|', [
+                $wp_user->ID,
+                $wp_user->user_email,
+                $wp_user->user_registered,
+            ])
+        );
+    }
+}
+
+function mgc_asset_version($relative_path)
+{
+    $full_path = MGC_PATH . ltrim($relative_path, '/');
+
+    return file_exists($full_path) ? (string) filemtime($full_path) : '0.0.0';
+}
+
 function mgc_enqueue_scripts() {
     if (is_cart()) {
-        wp_enqueue_style('mgc-cart', MGC_URL . 'assets/css/cart.css', [], MGC_VER);
+        wp_enqueue_style('mgc-cart', MGC_URL . 'assets/css/cart.css', [], mgc_asset_version('assets/css/cart.css'));
     }
     if (is_checkout()) {
-        wp_enqueue_style('mgc-checkout', MGC_URL . 'assets/css/checkout.css', [], MGC_VER);
+        wp_enqueue_style('mgc-checkout', MGC_URL . 'assets/css/checkout.css', [], mgc_asset_version('assets/css/checkout.css'));
     }
     if (is_order_received_page()) {
-        wp_enqueue_style('mgc-thankyou', MGC_URL . 'assets/css/thankyou.css', [], MGC_VER);
+        wp_enqueue_style('mgc-thankyou', MGC_URL . 'assets/css/thankyou.css', [], mgc_asset_version('assets/css/thankyou.css'));
     }
 }
 add_action('wp_enqueue_scripts', 'mgc_enqueue_scripts', 999);

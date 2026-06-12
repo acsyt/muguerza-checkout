@@ -115,8 +115,10 @@ body.woocommerce-order-received {
     border-radius: 8px;
 }
 
-.mgpe-product__name {
+a.mgpe-product__name {
     font-size: 18px;
+    color: #000;
+    text-decoration: none;
 }
 
 .mgpe-product__quantity {

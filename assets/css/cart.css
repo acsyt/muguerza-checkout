@@ -67,6 +67,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: #0a0a0a;
+  text-decoration: none;
 }
 .woocommerce-cart
   table.shop_table
@@ -394,6 +395,11 @@
   color: #4b5563;
 }
 
+.woocommerce-cart .cart_totals .shop_table .order-total th {
+  font-weight: bold!important;
+  color: #0A0A0A;
+}
+
 /* Valores a la derecha */
 .woocommerce-cart .cart_totals .shop_table td {
   text-align: right;
@@ -428,12 +434,11 @@
 /* Monto grande del Total */
 .woocommerce-cart .cart_totals .order-total .amount {
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0px;
   text-align: right;
-  color: #0A0A0A;
+  color: #671e75;
 }
 
 /* ===== Botón principal "Finalizar compra" ===== */
@@ -491,4 +496,10 @@
 .woocommerce-cart .cart_totals .shop_table tr.order-total td {
   border-bottom: 1px solid #e5e7eb !important;
   padding-bottom: 16px;
+}
+
+
+.woocommerce-cart table.shop_table th.product-price,
+.woocommerce-cart table.shop_table th.product-subtotal {
+  text-align: center;
 }
