@@ -353,6 +353,25 @@ form.checkout.woocommerce-checkout.step-3 .woocommerce-form-coupon-toggle {
   gap: 8px !important;
 }
 
+button.button.mg-next:disabled,
+.mg-controls .button.mg-next:disabled,
+.mg-controls .button.mg-next.mg-curp-step-locked {
+  background: #c9cfdd !important;
+  color: #f7f8fc !important;
+  border-color: #c9cfdd !important;
+  box-shadow: none !important;
+  opacity: .68 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  filter: saturate(.65);
+}
+
+button.button.mg-next:disabled:after,
+.mg-controls .button.mg-next:disabled:after,
+.mg-controls .button.mg-next.mg-curp-step-locked:after {
+  opacity: .7;
+}
+
 .woocommerce-checkout input.input-text,
 .woocommerce-checkout select,
 .woocommerce-checkout textarea {
