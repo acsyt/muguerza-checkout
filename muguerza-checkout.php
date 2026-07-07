@@ -177,6 +177,7 @@ function cly_checkout_steps_script()
             }
 
             function ensureConektaIframeVisible() {
+                var targetHeight = '432px';
                 var checked = document.querySelector('#payment .wc_payment_method input.input-radio:checked');
                 if (!checked || (checked.value || '') !== 'conekta') return;
 
@@ -192,28 +193,29 @@ function cly_checkout_steps_script()
 
                 if (!container) return;
 
-                var needsHeightFix = false;
-                if (container.offsetHeight < 40) needsHeightFix = true;
-                if (wrapper && wrapper.offsetHeight < 40) needsHeightFix = true;
-                if (iframe && iframe.offsetHeight === 0) needsHeightFix = true;
-
-                if (!needsHeightFix) return;
-
-                container.style.minHeight = '420px';
+                container.style.height = targetHeight;
+                container.style.minHeight = targetHeight;
+                container.style.maxHeight = targetHeight;
                 container.style.display = 'block';
                 container.style.visibility = 'visible';
+                container.style.overflow = 'hidden';
 
                 if (wrapper) {
-                    wrapper.style.height = '420px';
-                    wrapper.style.minHeight = '420px';
+                    wrapper.style.height = targetHeight;
+                    wrapper.style.minHeight = targetHeight;
+                    wrapper.style.maxHeight = targetHeight;
                     wrapper.style.display = 'block';
                     wrapper.style.position = 'relative';
+                    wrapper.style.overflow = 'hidden';
                 }
 
                 if (iframe) {
-                    iframe.style.height = '420px';
-                    iframe.style.minHeight = '420px';
+                    iframe.setAttribute('scrolling', 'no');
+                    iframe.style.height = targetHeight;
+                    iframe.style.minHeight = targetHeight;
+                    iframe.style.maxHeight = targetHeight;
                     iframe.style.display = 'block';
+                    iframe.style.overflow = 'hidden';
                 }
 
                 window.dispatchEvent(new Event('resize'));
