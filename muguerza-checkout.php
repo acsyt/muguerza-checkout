@@ -173,6 +173,50 @@ function cly_checkout_steps_script()
                 }
                 enhancePaymentSelection();
                 initCashbackActions();
+                ensureConektaIframeVisible();
+            }
+
+            function ensureConektaIframeVisible() {
+                var checked = document.querySelector('#payment .wc_payment_method input.input-radio:checked');
+                if (!checked || (checked.value || '') !== 'conekta') return;
+
+                var paymentBox = document.querySelector('#payment .payment_method_conekta .payment_box');
+                var container = document.querySelector('#conektaIframeContainer');
+                var wrapper = container ? container.firstElementChild : null;
+                var iframe = container ? container.querySelector('iframe.zoid-visible, iframe[title=\"conekta_embedded_checkout_component_tokenizer\"]') : null;
+
+                if (paymentBox) {
+                    paymentBox.style.display = '';
+                    paymentBox.style.visibility = 'visible';
+                }
+
+                if (!container) return;
+
+                var needsHeightFix = false;
+                if (container.offsetHeight < 40) needsHeightFix = true;
+                if (wrapper && wrapper.offsetHeight < 40) needsHeightFix = true;
+                if (iframe && iframe.offsetHeight === 0) needsHeightFix = true;
+
+                if (!needsHeightFix) return;
+
+                container.style.minHeight = '420px';
+                container.style.display = 'block';
+                container.style.visibility = 'visible';
+
+                if (wrapper) {
+                    wrapper.style.height = '420px';
+                    wrapper.style.minHeight = '420px';
+                    wrapper.style.display = 'block';
+                    wrapper.style.position = 'relative';
+                }
+
+                if (iframe) {
+                    iframe.style.height = '420px';
+                    iframe.style.minHeight = '420px';
+                    iframe.style.display = 'block';
+                }
+
+                window.dispatchEvent(new Event('resize'));
             }
 
             function showPayerInfoFields(show) {
@@ -583,6 +627,7 @@ function cly_checkout_steps_script()
                         window.clyLastPaymentMethod = input.value || '';
                         // Dejar que WooCommerce controle la expansión del payment_box con su propio manejador de change
                         applySelected();
+                        setTimeout(ensureConektaIframeVisible, 50);
                         // if (window.jQuery) {
                         //     var $ = jQuery;
                         //     var val = $(input).val();
@@ -605,13 +650,13 @@ function cly_checkout_steps_script()
                         window.clyLastPaymentMethod = input.value || '';
                         // No forzar manualmente display; el change de WooCommerce se encarga
                         if (window.jQuery) {
-                            jQuery(input).prop('checked', true).trigger('change');
-                        } else {
-                            input.checked = true;
-                            input.dispatchEvent(new Event('change', {
-                                bubbles: true
-                            }));
+                            jQuery(input).prop('checked', true);
                         }
+                        input.checked = true;
+                        input.dispatchEvent(new Event('change', {
+                            bubbles: true
+                        }));
+                        setTimeout(ensureConektaIframeVisible, 50);
                         // if (window.jQuery) {
                         //     var $ = jQuery;
                         //     var val = $(input).val();
@@ -626,6 +671,7 @@ function cly_checkout_steps_script()
                     input.setAttribute('data-cly-bound', '1');
                 });
                 applySelected();
+                setTimeout(ensureConektaIframeVisible, 50);
 
                 // Not required for redesign
                 // var combine = container.querySelector('.mg-combine-block');
@@ -994,17 +1040,6 @@ function cly_checkout_steps_script()
                                 if ($inp.length) {
                                     $inp.prop('checked', true);
                                 }
-                                $('.payment_box').hide();
-                                var val = $inp.val();
-                                var $target = $('#payment .payment_box.payment_method_' + val);
-                                if ($target.length) {
-                                    $target.show();
-                                } else {
-                                    var $li = $inp.closest('.wc_payment_method');
-                                    if ($li.length) {
-                                        $li.find('.payment_box').show();
-                                    }
-                                }
                             }
                             enhancePaymentSelection();
                             ensureCouponUI();
@@ -1017,6 +1052,8 @@ function cly_checkout_steps_script()
                             setupCashbackCancel();
                             restoreCashbackState();
                             reapplyCombineSelection();
+                            setTimeout(ensureConektaIframeVisible, 50);
+                            setTimeout(ensureConektaIframeVisible, 300);
                         }
                     });
                 });
