@@ -865,10 +865,10 @@ form.checkout.woocommerce-checkout.step-3 #payment .checkout_coupon .button {
 form.checkout.woocommerce-checkout .mg-messaje-checkout {
   grid-column: 1 / -1;
   width: 100%;
-  font-family: "Montserrat", sans-serif !important;
-  font-size: 16px !important;
-  line-height: 26px !important;
-  font-weight: 500 !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
 }
 
 /* Botón principal más parecido al diseño */
