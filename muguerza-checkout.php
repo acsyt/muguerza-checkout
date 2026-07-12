@@ -77,7 +77,7 @@ add_action('wp_enqueue_scripts', 'mgc_enqueue_scripts', 999);
 
 // Botón "Continuar comprando" en el carrito
 add_action('woocommerce_after_cart_totals', function () {
-    echo '<a href="' . esc_url(wc_get_page_permalink('shop')) . '" class="button wc-backward">'
+    echo '<a href="' . esc_url(get_permalink( get_page_by_path( 'servicios' ) )) . '" class="button wc-backward">'
         . esc_html__('Continuar comprando', 'tu-textdomain')
         . '</a>';
 });
