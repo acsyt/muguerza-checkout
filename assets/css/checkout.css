@@ -384,6 +384,43 @@ button.button.mg-next:disabled:after,
   line-height: 26px;
 }
 
+.woocommerce-checkout .select2-container {
+  width: 100% !important;
+}
+
+.woocommerce-checkout .select2-container .select2-selection--single {
+  height: auto;
+  min-height: 0;
+  border: 1px solid var(--cly-border);
+  border-radius: 10px;
+  background: #f9fafb;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding-top: 10px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  color: #0a0a0a;
+  line-height: normal;
+}
+
+.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__arrow {
+  display: none;
+}
+
+.woocommerce-checkout .select2-container--default.select2-container--focus .select2-selection--single,
+.woocommerce-checkout .select2-container--default.select2-container--open .select2-selection--single {
+  border-color: var(--cly-border);
+  outline: none;
+}
+
+.woocommerce form .form-row.woocommerce-validated .select2-container:not(.select2-container--open) .select2-selection {
+  border-color: var(--cly-border) !important;
+}
+
 .woocommerce-checkout .form-row label {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -1112,6 +1149,90 @@ input.mg-cashback-amount {
   font-size: 14px !important;
   color: #0a0a0a !important;
   background: #f9fafb !important;
+}
+
+.woocommerce form .form-row select {
+  padding-right: 40px !important;
+  background-image: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.woocommerce-checkout .form-row .woocommerce-input-wrapper:has(select) {
+  position: relative;
+  display: block;
+}
+
+.woocommerce-checkout .form-row .woocommerce-input-wrapper:has(select)::after {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  z-index: 2;
+  color: var(--cly-brand);
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.woocommerce-checkout .form-row .woocommerce-input-wrapper:has(select)::after {
+  content: "\f078";
+  font-size: 14px;
+}
+
+@supports selector(input::-webkit-calendar-picker-indicator) {
+  .woocommerce form .form-row input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(19%) sepia(35%) saturate(3434%) hue-rotate(267deg) brightness(84%) contrast(94%);
+  }
+}
+
+#billing_phone_field .woocommerce-input-wrapper::after {
+  content: none;
+}
+
+#billing_phone_field .mg-phone-split {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+#billing_phone_field .mg-phone-country-code {
+  position: relative;
+  display: block;
+}
+
+#billing_phone_field .mg-phone-country-code::after {
+  content: "\f078";
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  color: var(--cly-brand);
+  font-family: "Font Awesome 5 Free";
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+#billing_phone_field .mg-phone-country-code select,
+#billing_phone_field #billing_phone_local {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#billing_phone_field .mg-phone-country-code select {
+  padding-right: 40px !important;
+}
+
+@media (max-width: 480px) {
+  #billing_phone_field .mg-phone-split {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
 }
 
 /* Card derecha */
