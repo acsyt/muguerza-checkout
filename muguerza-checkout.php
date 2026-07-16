@@ -304,6 +304,106 @@ function cly_checkout_steps_script()
                 }
             }
 
+            function showCouponError(form, message) {
+                var input = form.querySelector('#coupon_code');
+                var checkoutForm = document.querySelector('form.checkout.woocommerce-checkout');
+                var existingError = document.querySelector('.woocommerce-NoticeGroup-checkout.mg-coupon-error');
+                var noticeGroup = document.createElement('div');
+                var error = document.createElement('div');
+                var content = document.createElement('div');
+
+                if (existingError) existingError.remove();
+                if (!checkoutForm) return;
+
+                noticeGroup.className = 'woocommerce-NoticeGroup woocommerce-NoticeGroup-checkout mg-coupon-error';
+                error.className = 'woocommerce-error';
+                error.setAttribute('role', 'alert');
+                error.setAttribute('tabindex', '-1');
+                content.className = 'woocommerce-error__content site-main';
+                content.textContent = message;
+                error.appendChild(content);
+                noticeGroup.appendChild(error);
+                checkoutForm.parentNode.insertBefore(noticeGroup, checkoutForm);
+
+                if (input) input.setAttribute('aria-invalid', 'true');
+                if (window.jQuery) {
+                    window.jQuery(document.body).trigger('checkout_error', [message]);
+                }
+
+                window.setTimeout(function() {
+                    error.focus();
+                }, 0);
+            }
+
+            function applyCouponAjax(form) {
+                var $ = window.jQuery;
+                var input = form.querySelector('#coupon_code');
+                var button = form.querySelector('button[name="apply_coupon"]');
+                var couponCode = input ? input.value.trim() : '';
+
+                if (!$ || typeof wc_checkout_params === 'undefined') {
+                    showCouponError(form, 'No fue posible aplicar el cupón en este momento.');
+                    return;
+                }
+
+                if (!couponCode || form.classList.contains('processing')) return;
+
+                form.classList.add('processing');
+                if (button) button.disabled = true;
+                if (input) input.removeAttribute('aria-invalid');
+
+                var existingError = document.querySelector('.woocommerce-NoticeGroup-checkout.mg-coupon-error');
+                if (existingError) existingError.remove();
+
+                $.ajax({
+                    type: 'POST',
+                    url: wc_checkout_params.wc_ajax_url.toString().replace('%%endpoint%%', 'apply_coupon'),
+                    data: {
+                        security: wc_checkout_params.apply_coupon_nonce,
+                        coupon_code: couponCode,
+                        billing_email: $('form.checkout.woocommerce-checkout').find('[name="billing_email"]').val() || ''
+                    },
+                    dataType: 'html'
+                }).done(function(response) {
+                    var responseNode = document.createElement('div');
+                    responseNode.innerHTML = response || '';
+                    var hasError = responseNode.querySelector('.woocommerce-error, .is-error');
+
+                    if (hasError) {
+                        showCouponError(form, responseNode.textContent.trim());
+                        return;
+                    }
+
+                    input.value = '';
+                    $(document.body).trigger('applied_coupon_in_checkout', [couponCode]);
+                    $(document.body).trigger('update_checkout', {
+                        update_shipping_method: false
+                    });
+                }).fail(function() {
+                    showCouponError(form, 'No fue posible aplicar el cupón en este momento.');
+                }).always(function() {
+                    form.classList.remove('processing');
+                    if (button) button.disabled = false;
+                });
+            }
+
+            function bindAjaxCouponForm() {
+                if (window.mgCouponAjaxBound) return;
+                window.mgCouponAjaxBound = true;
+
+                // The payment section is replaced after updated_checkout, so use
+                // delegation instead of binding WooCommerce's initial form only.
+                document.addEventListener('submit', function(event) {
+                    var form = event.target;
+
+                    if (!form.matches('#payment form.checkout_coupon')) return;
+
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    applyCouponAjax(form);
+                }, true);
+            }
+
             function ensureCouponUI() {
                 var sect3 = document.querySelector('.woocommerce-checkout-payment, #payment');
                 if (!sect3) return;
@@ -1013,6 +1113,7 @@ function cly_checkout_steps_script()
             placeWideMessage();
             enhancePaymentSelection();
             initCouponToggle();
+            bindAjaxCouponForm();
             initCashbackActions();
             syncCashbackUI();
             markCashbackFee();
